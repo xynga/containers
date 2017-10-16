@@ -1,1 +1,1 @@
-export {ContainersModule} from './containers.module.ts'
+export {ContainersModule} from './containers.module'
