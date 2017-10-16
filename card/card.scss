@@ -1,0 +1,124 @@
+$border: 1px solid #c0c0c0 !default;
+
+$card-top-bottom-pad: 5px !default;
+$card-left-right-pad: 30px !default;
+$card-min-height: 270px !default;
+$card-header-footer-min-height: 65px !default;
+$card-padding: $card-top-bottom-pad $card-left-right-pad !default;
+
+$card-border: $border !default;
+$card-list-separator: $border !default;
+
+$rem: .2rem;
+$rem-scalar: 1.7099758;
+
+$rem-smallest: $rem;
+$rem-smaller: $rem-smallest * $rem-scalar;
+$rem-small: $rem-smaller * $rem-scalar;
+$rem-medium: $rem-small * $rem-scalar; // must equal 1 rem
+$rem-large: $rem-medium * $rem-scalar;
+$rem-larger: $rem-large * $rem-scalar;
+$rem-largest: $rem-larger * $rem-scalar;
+
+:host {
+  display: block;
+  width: 100%;
+
+  &:not(.borderless) {
+    border: $card-border;
+  }
+/*
+  &.borderless {
+    padding-top: $rem-medium;
+    padding-bottom: $rem-medium;
+  }
+*/
+  &:not(.header) > header, &:not(.footer) > footer {
+    display: none;
+  }
+
+  &.header.footer > /deep/ section {
+    min-height: $card-min-height - ($card-header-footer-min-height * 2);
+  }
+
+  &.header:not(.footer) > /deep/ section, &:not(.header).footer > section {
+    min-height: $card-min-height - $card-header-footer-min-height;
+  }
+
+  &:not(.header):not(.footer) > section {
+    min-height: $card-min-height;
+  }
+
+  &.action {
+    margin-top: $rem-small;
+    margin-bottom: $rem-small;
+
+    & /deep/ {
+      [body] {
+        min-height: $card-min-height !important;
+        max-height: $card-min-height + ($card-top-bottom-pad * 2);
+        overflow-y: auto;
+      }
+
+      [header], [body], [footer] {
+        & > :first-child.repeater {
+          margin-top: $rem-small !important;
+        }
+        & > :not(:last-child).repeater {
+          border-bottom: $card-list-separator;
+          margin-bottom: $rem-small !important;
+        }
+      }
+    }
+  }
+}
+
+/deep/ .card_section_padding {
+  padding: $card-padding;
+}
+
+:host /deep/ {
+  [header], [body], [footer] {
+    min-width: 100%;
+    max-height: inherit;
+  }
+}
+
+header, section, footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $card-padding;
+
+  > /deep/ {
+     [nested] {
+      margin-top: -$card-top-bottom-pad;
+      margin-bottom: -$card-top-bottom-pad;
+
+      min-width: calc(100% + #{$card-left-right-pad * 2});
+    }
+
+     [overlaid] {
+      margin-top: -($card-top-bottom-pad + 1);
+      margin-bottom: -($card-top-bottom-pad + 1);
+      min-width: calc(100% + #{($card-left-right-pad + 1) * 2});
+    }
+  }
+}
+
+header {
+  border-bottom: $card-border;
+}
+
+header, footer {
+  min-height: 65px;
+  background-color: #e0e0e0;
+}
+
+footer {
+  border-top: $card-border;
+}
+
+section {
+  background-color: #ffffff;
+}

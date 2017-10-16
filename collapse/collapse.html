@@ -1,0 +1,7 @@
+<div class="collapse" [ngStyle]="{height: collapseHeight}">
+  <div #content class="collapse__content">
+    <div *ngIf="_isActive">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="tooltip" #container [@tooltipState]="tooltipState" [ngClass]="cssClass" [class.macro-tooltip--tutorial]="isTutoring">
+  <div *ngIf="active" class="tooltip__viewport">
+    <div class="arrow"></div>
+    <div class="tooltip__content">
+      <ng-content></ng-content>
+      <div *ngIf="isTutoring">
+        <button *ngIf="!first" padding-lg-horizontal class="btn" (click)="onTooltipNavigate.emit('prev')">
+          Previous
+        </button>
+        <button *ngIf="!last" padding-lg-horizontal class="btn" (click)="onTooltipNavigate.emit('next')">
+          Next
+        </button>
+        <button margin-left class="link-btn" (click)="onTooltipNavigate.emit('end')">
+          <strong *ngIf="first">
+            Quit
+          </strong>
+          <strong *ngIf="last">
+            Finish
+          </strong>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+.panel {
+  border: 1px solid color(neutral-extralight);
+
+  &--light {
+    background-color: color(neutral-white);
+  }
+  &--neutral {
+    background-color: color(neutral-superlight);
+  }
+}
+
+.information-panel-container {
+  position: relative;
+
+  .main &, .features & {
+    margin-right: -32px;
+  }
+}
+
+.information-panel-content {
+  margin-right: 90px;
+}
+
+.information-panel {
+  background: #f0efef;
+  min-height: 200px;
+  position: absolute;
+  width: 60px;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  transition: width 0.6s $easeOutQuint, box-shadow 0.4s;
+  will-change: width;
+  overflow: hidden;
+
+  &__viewport {
+    border: 1px solid #d5d5d5;
+    display: flex;
+    align-items: stretch;
+    transform: 0.6s $easeOutQuint;
+    width: 350px;
+  }
+
+  &.active, &:hover, &:active, &:focus {
+    box-shadow: 2px 2px 10px 0 rgba(#000, .3);;
+  }
+
+  &.active {
+    width: 350px;
+
+    .information-panel__arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 10px;
+  }
+
+  &.fixed-bottom {
+    position: absolute;
+    bottom: 10px;
+    top: auto;
+    right: 0 !important;
+  }
+
+  &__handle {
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    border-right: 1px solid #d5d5d5;
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+
+  &__label {
+    span {
+      font-size: 12px;
+      margin-top: 3px;
+      display: block;
+    }
+  }
+
+  &__arrow {
+    transition: transform 0.4s;
+  }
+
+  &__content {
+    padding: 16px * 2;
+
+    h2 {
+      margin-top: -8px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      transform: translateZ(0);
+    }
+
+    ul {
+      padding: 0;
+      margin-bottom: 25px;
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+  }
+}
+
+.information-panel-waypoint-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.information-panel-waypoint-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.link-btn {
+  &, &:hover, &:focus, &:disabled {
+    color: color(brand-primary);
+    background: transparent;
+    box-shadow: none;
+    font-weight: bold;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    color: color(neutral-extralight);
+  }
+}
+
+

@@ -1,0 +1,23 @@
+<span #waypoint class="information-panel-waypoint-top" waypoint [offset]="10" (waypointChange)="onWaypointChange($event)"></span>
+<span class="information-panel-waypoint-bottom" waypoint [offset]="containerHeight" (waypointChange)="onWaypointChangeBottom($event)"></span>
+<div class="information-panel" #container [class.active]="active" [class.fixed]="isFixed" [class.fixed-bottom]="isFixedBottom" [ngStyle]="{right: offsetRight}">
+  <div class="information-panel__viewport">
+    <button class="link-btn information-panel__handle" (click)="toggle()">
+      <div class="information-panel__label">
+        <icon icon="help"></icon>
+        <span>
+          {{_helpButtonLabel}}
+        </span>
+      </div>
+      <div class="information-panel__arrow">
+        <icon icon="chevron-left-green"></icon>
+      </div>
+    </button>
+    <div class="information-panel__content">
+      <h2>
+        {{_title}}
+      </h2>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
