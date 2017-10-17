@@ -12,7 +12,7 @@
   "dependencies": {
     "@angular/animations" : "~4.4.4",
     "@angular/core" : "~4.4.4",
-    "xynga-general": "git+https://github.com/xynga/general.git",
+    "xynga-general": "github:xynga/general",
     "rxjs" : "~5.4.3",
     "waypoints" : "~4.0.1",
     "tether" : "~1.4.0"
