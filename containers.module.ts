@@ -8,30 +8,44 @@ import {TooltipComponent} from "./tooltip/tooltip.component";
 import {TooltipTargetDirective} from "./tooltip/directives/tooltip-target.directive";
 import {GeneralModule} from "../xynga-general/general.module";
 import {CommonModule} from "@angular/common";
+import {ModalPanelComponent} from "./modal-panel/modal-panel.component";
+import {BodyDirective} from "./modal-panel/directives/body.directive";
+import {RouterModule} from "@angular/router";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
-  declarations: [
-    CardComponent,
-    CollapseComponent,
-    InformationPanelComponent,
-    WaypointDirective,
-    TooltipComponent,
-    TooltipTargetDirective
-  ],
-  imports:[
-    CommonModule,
-    BrowserAnimationsModule,
-    GeneralModule,
-  ],
-  exports:[
-    CardComponent,
-    CollapseComponent,
-    InformationPanelComponent,
-    TooltipComponent,
-    WaypointDirective,
-    TooltipComponent,
-    TooltipTargetDirective
-  ]
+    declarations: [
+        ModalPanelComponent,
+        CardComponent,
+        CollapseComponent,
+        InformationPanelComponent,
+        WaypointDirective,
+        TooltipComponent,
+        TooltipTargetDirective,
+        BodyDirective
+    ],
+    providers: [
+        BodyDirective
+    ],
+    imports:[
+        CommonModule,
+        BrowserAnimationsModule,
+        GeneralModule,
+        RouterModule,
+        HttpModule,
+    ],
+    exports:[
+        ModalPanelComponent,
+        CardComponent,
+        CollapseComponent,
+        InformationPanelComponent,
+        TooltipComponent,
+        WaypointDirective,
+        TooltipComponent,
+        TooltipTargetDirective,
+        BodyDirective
+    ]
 })
 
 export class ContainersModule {}
+

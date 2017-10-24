@@ -1,0 +1,11 @@
+<div class="modal-container" *ngIf="panelOpen" [@containerState]="panelState" [class.is-expanded]="isExpanded">
+  <div class="modal-backdrop" (click)="onBackdropClicked()" [@backdropState]="panelState"></div>
+  <div class="modal-panel" [@modalState]="panelState">
+    <!--<button class = "button-close" (click)="onCloseClicked()" *ngIf="panelState === 'active'">Close</button>-->
+    <ng-content></ng-content>
+    <span class="modal-detail-overlay" *ngIf="panelState === 'expanded'" [@modalDetailOverlayState]="panelState" (click)="onCloseDetailClicked()"></span>
+  </div>
+  <div class="modal-detail-container">
+    <ng-content select=".modal-detail"></ng-content>
+  </div>
+</div>
