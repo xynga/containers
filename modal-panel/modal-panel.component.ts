@@ -27,186 +27,187 @@ const animateDefault = animate(`${modalSpeed}ms ${easeOutQuart}`);
 const SELECTOR: string = 'modal-panel';
 
 @Component({
-  selector: SELECTOR,
-  templateUrl: './modal-panel.html',
-  styleUrls: ['./modal-panel.scss'],
-  encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('containerState', [
-      state('inactive, active', slideNone),
-      state('expanded', slideLeft),
-      transition('* => expanded', animateDefault),
-      transition('expanded => *', animateDefault)
-    ]),
-    trigger('backdropState', [
-      state('inactive', opacityOff),
-      state('active, expanded', opacityOn),
-      transition('* => active', animateDefault),
-      transition('* => inactive', animateDefault)
-    ]),
-    trigger('modalState', [
-      state('inactive, expanded', slideRight),
-      state('active', slideNone),
-      transition('* => active', animateDefault),
-      transition('* => inactive', animateDefault),
-      transition('* => expanded', animateDefault)
-    ]),
-    trigger('modalDetailOverlayState', [
-      state('inactive, active', opacityOff),
-      state('expanded', opacityOn),
-      transition('* => expanded', animateDefault),
-      transition('expanded => *', animateDefault)
-    ])
-  ]
+    selector: SELECTOR,
+    templateUrl: './modal-panel.html',
+    styleUrls: ['./modal-panel.scss'],
+    encapsulation: ViewEncapsulation.None,
+    animations: [
+        trigger('containerState', [
+            state('inactive, active', slideNone),
+            state('expanded', slideLeft),
+            transition('* => expanded', animateDefault),
+            transition('expanded => *', animateDefault)
+        ]),
+        trigger('backdropState', [
+            state('inactive', opacityOff),
+            state('active, expanded', opacityOn),
+            transition('* => active', animateDefault),
+            transition('* => inactive', animateDefault)
+        ]),
+        trigger('modalState', [
+            state('inactive, expanded', slideRight),
+            state('active', slideNone),
+            transition('* => active', animateDefault),
+            transition('* => inactive', animateDefault),
+            transition('* => expanded', animateDefault)
+        ]),
+        trigger('modalDetailOverlayState', [
+            state('inactive, active', opacityOff),
+            state('expanded', opacityOn),
+            transition('* => expanded', animateDefault),
+            transition('expanded => *', animateDefault)
+        ])
+    ]
 })
 export class ModalPanelComponent implements OnInit, OnDestroy {
-  @Input()
-  public set open(open: boolean) {
-    if (undefined !== open && null !== open) {
-      if (!this.panelOpen && open) {
-        this.activate(0);
-      }
-      else if (this.panelOpen && !open) {
+    @Input()
+    public set open(open: boolean) {
+        if (undefined !== open && null !== open) {
+            if (!this.panelOpen && open) {
+                this.activate(0);
+            }
+            else if (this.panelOpen && !open) {
+                this.close();
+            }
+
+            this.routerEventsMonitoring = false; // because we got an @Input value we were not accessed vai a route
+        }
+    };
+
+    @Input()
+    public set detailOpen(open: boolean) {
+        if (undefined !== open && null !== open) {
+            if (open) {
+                this.panelState = EXPANDED;
+
+                if (!this.panelOpen) {
+                    this.activate(0);
+                }
+            }
+            else if (this.isExpanded){
+                this.panelState = ACTIVE;
+                this.closeDetail();
+            }
+
+            this.routerEventsMonitoring = false; // because we got an @Input value we were not accessed vai a route
+        }
+    };
+
+    @Input() public confirmClose: () => Observable<boolean>;
+    @Input() public confirmDetailClose: () => Observable<boolean>;
+
+    @Output() public closed = new EventEmitter();
+
+    @Output() public detailClosed = new EventEmitter();
+
+    public panelOpen: boolean = false;
+
+    public panelState: string = INACTIVE;
+
+    private isAnimating: boolean = false;
+
+    private confirmCloseSubscription: Subscription;
+    private confirmDetailCloseSubscription: Subscription;
+
+    private routerEventsSubscription: Subscription;
+    private routerEventsMonitoring: boolean = true;
+
+    public get isExpanded(): boolean {
+        return EXPANDED === this.panelState;
+    }
+
+    public constructor(private body: BodyDirective, private router: Router) {}
+
+    public ngOnInit(): void {
+        if (this.routerEventsMonitoring) {
+            this.activate(0);
+
+            this.routerEventsSubscription = this.router.events.subscribe((event) => {
+                if (event instanceof NavigationStart) {
+                    this.activate(modalSpeed);
+                }
+            });
+        }
+    }
+
+    public onBackdropClicked(): void {
+        this.open = false;
+    }
+
+    public onCloseClicked(): void {
         this.close();
-      }
-
-      this.routerEventsMonitoring = false; // because we got an @Input value we were not accessed vai a route
     }
-  };
 
-  @Input()
-  public set detailOpen(open: boolean) {
-    if (undefined !== open && null !== open) {
-      if (open) {
-        this.panelState = EXPANDED;
+    public onCloseDetailClicked(): void {
+        this.detailOpen = false;
+    }
 
+    public activate(timer: number): void {
         if (!this.panelOpen) {
-          this.activate(0);
+            this.body.modalOpen = true;
+            this.panelOpen = true;
+            this.panelState = INACTIVE;
+
+            setTimeout(() => {
+                this.panelState = ACTIVE;
+            }, timer);
         }
-      }
-      else {
-        this.panelState = ACTIVE;
-      }
-
-      this.routerEventsMonitoring = false; // because we got an @Input value we were not accessed vai a route
     }
-  };
 
-  @Input() public confirmClose: () => Observable<boolean>;
-  @Input() public confirmDetailClose: () => Observable<boolean>;
-
-  @Output() public closed = new EventEmitter();
-
-  @Output() public detailClosed = new EventEmitter();
-
-  public panelOpen: boolean = false;
-
-  public panelState: string = INACTIVE;
-
-  private isAnimating: boolean = false;
-
-  private confirmCloseSubscription: Subscription;
-  private confirmDetailCloseSubscription: Subscription;
-
-  private routerEventsSubscription: Subscription;
-  private routerEventsMonitoring: boolean = true;
-
-  public get isExpanded(): boolean {
-    return EXPANDED === this.panelState;
-  }
-
-  public constructor(private body: BodyDirective, private router: Router) {}
-
-  public ngOnInit(): void {
-    if (this.routerEventsMonitoring) {
-      this.activate(0);
-
-      this.routerEventsSubscription = this.router.events.subscribe((event) => {
-        if (event instanceof NavigationStart) {
-          this.activate(modalSpeed);
+    public close(): void {
+        if (this.confirmClose) {
+            this.confirmCloseSubscription = this.confirmClose().subscribe((confirmed: boolean) => this.deactivate(confirmed));
         }
-      });
-    }
-  }
-
-  public onBackdropClicked(): void {
-    this.close();
-  }
-
-  public onCloseClicked(): void {
-    this.close();
-  }
-
-  public onCloseDetailClicked(): void {
-    this.closeDetail();
-  }
-
-  public activate(timer: number): void {
-    if (!this.panelOpen) {
-      this.body.modalOpen = true;
-      this.panelOpen = true;
-      this.panelState = INACTIVE;
-
-      setTimeout(() => {
-        this.panelState = ACTIVE;
-      }, timer);
-    }
-  }
-
-  public close(): void {
-    if (this.confirmClose) {
-      this.confirmCloseSubscription = this.confirmClose().subscribe((confirmed: boolean) => this.deactivate(confirmed));
-    }
-    else {
-      this.deactivate(true);
-    }
-  }
-
-  public deactivate(confirmed: boolean): void {
-    if (confirmed) {
-      if (!this.isAnimating) {
-        this.isAnimating = true;
-        this.panelState = INACTIVE;
-
-        setTimeout(() => {
-          this.isAnimating = false;
-          this.panelOpen = false;
-          this.body.modalOpen = false;
-          this.closed.emit();
-        }, modalSpeed);
-      }
+        else {
+            this.deactivate(true);
+        }
     }
 
-    if (this.confirmCloseSubscription) {
-      this.confirmCloseSubscription.unsubscribe();
-    }
-  }
+    public deactivate(confirmed: boolean): void {
+        if (confirmed) {
+            if (!this.isAnimating) {
+                this.isAnimating = true;
+                this.panelState = INACTIVE;
 
-  public closeDetail(): void {
-    if (this.confirmDetailClose) {
-      this.confirmDetailCloseSubscription = this.confirmDetailClose().subscribe((confirmed: boolean) => this.unexpand(confirmed));
-    }
-    else {
-      this.unexpand(true);
-    }
-  }
+                setTimeout(() => {
+                    this.isAnimating = false;
+                    this.panelOpen = false;
+                    this.body.modalOpen = false;
+                    this.closed.emit();
+                }, modalSpeed);
+            }
+        }
 
-  public unexpand(confirmed: boolean): void {
-    if (confirmed) {
-      this.panelState = ACTIVE;
-      this.detailClosed.emit();
+        if (this.confirmCloseSubscription) {
+            this.confirmCloseSubscription.unsubscribe();
+        }
     }
 
-    if (this.confirmDetailCloseSubscription) {
-      this.confirmDetailCloseSubscription.unsubscribe();
+    public closeDetail(): void {
+        if (this.confirmDetailClose) {
+            this.confirmDetailCloseSubscription = this.confirmDetailClose().subscribe((confirmed: boolean) => this.unexpand(confirmed));
+        }
+        else {
+            this.unexpand(true);
+        }
     }
-  }
 
-  public ngOnDestroy(): void {
-    this.body.modalOpen = false;
+    public unexpand(confirmed: boolean): void {
+        if (confirmed) {
+            this.panelState = ACTIVE;
+            this.detailClosed.emit();
+        }
 
-    if (this.routerEventsSubscription) {
-      this.routerEventsSubscription.unsubscribe();
+        if (this.confirmDetailCloseSubscription) {
+            this.confirmDetailCloseSubscription.unsubscribe();
+        }
     }
-  }
+
+    public ngOnDestroy(): void {
+        this.body.modalOpen = false;
+
+        if (this.routerEventsSubscription) {
+            this.routerEventsSubscription.unsubscribe();
+        }
+    }
 }
