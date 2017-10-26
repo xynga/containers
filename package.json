@@ -1,6 +1,6 @@
 {
   "name": "xynga-containers",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Holds all of the components classified under the label of \"Containers\"",
   "main": "index.js",
   "scripts": {
