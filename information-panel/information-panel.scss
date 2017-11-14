@@ -1,13 +1,13 @@
 $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 
 .panel {
-  border: 1px solid color(neutral-extralight);
+  border: 1px solid #d5d5d5;
 
   &--light {
-    background-color: color(neutral-white);
+    background-color: #d5d5d5;
   }
   &--neutral {
-    background-color: color(neutral-superlight);
+    background-color: #d5d5d5;
   }
 }
 
@@ -25,7 +25,6 @@ $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 
 .information-panel {
   background: #f0efef;
-  min-height: 200px;
   position: absolute;
   width: 60px;
   top: 0;
@@ -75,6 +74,9 @@ $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
     align-items: center;
     width: 60px;
     border-right: 1px solid #d5d5d5;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
 
     &:active, &:focus {
       outline: none;
@@ -130,7 +132,7 @@ $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 
 .link-btn {
   &, &:hover, &:focus, &:disabled {
-    color: color(brand-primary);
+    color: #266eb3;
     background: transparent;
     box-shadow: none;
     font-weight: bold;
@@ -141,7 +143,7 @@ $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
   }
 
   &:disabled {
-    color: color(neutral-extralight);
+    color: #d5d5d5;
   }
 }
 
