@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter, ViewChild, NgZone, OnDestroy} from '@angular/core';
 import {animate, trigger, state, style, transition} from '@angular/animations';
-import Tether from 'tether';
+import * as Tether from 'tether';
 
 const tooltipSpeed: number = 250;
 const easeOutQuart: string = 'cubic-bezier(0.165, 0.840, 0.440, 1.000)';
