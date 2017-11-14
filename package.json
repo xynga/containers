@@ -1,6 +1,6 @@
 {
   "name": "xynga-containers",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Holds all of the components classified under the label of \"Containers\"",
   "main": "index.js",
   "scripts": {
@@ -9,12 +9,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@angular/animations": "~4.4.4",
-    "@angular/core": "~4.4.4",
-    "@angular/router": "~4.4.6",
+    "@angular/animations": "^4.4.4",
+    "@angular/core": "^4.4.4",
+    "@angular/router": "^4.4.6",
     "xynga-general": "^1.0.1",
-    "rxjs": "~5.4.3",
-    "waypoints": "~4.0.1",
-    "tether": "~1.4.0"
+    "rxjs": "^5.4.3",
+    "waypoints": "^4.0.1",
+    "tether": "^1.4.0"
   }
 }
