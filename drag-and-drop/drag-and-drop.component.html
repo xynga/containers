@@ -1,0 +1,12 @@
+<div class="uploadWindow" ng2FileDrop [ngClass]="{active: dropZoneHover}" (fileOver)="onFileOver($event)" [uploader]="fileUploader">
+    <h3>Drag and Drop</h3>
+    <div>
+        <p>File Queue</p>
+        <table>
+            <tr *ngFor="let item of fileUploader.queue">
+                <td>{{item?.file?.name}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
