@@ -13,7 +13,7 @@ import {DragAndDropComponent} from "./drag-and-drop/drag-and-drop.component";
 import {BodyDirective} from "./modal-panel/directives/body.directive";
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
-import {FileSelectDirective} from 'ng2-file-upload';
+import { FileUploadModule } from "ng2-file-upload";
 
 @NgModule({
     declarations: [
@@ -25,8 +25,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
         TooltipComponent,
         TooltipTargetDirective,
         BodyDirective,
-        DragAndDropComponent,
-        FileSelectDirective
+        DragAndDropComponent
     ],
     providers: [
         BodyDirective
@@ -37,6 +36,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
         GeneralModule,
         RouterModule,
         HttpModule,
+        FileUploadModule
     ],
     exports:[
         ModalPanelComponent,
