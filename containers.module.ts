@@ -9,6 +9,7 @@ import {TooltipTargetDirective} from "./tooltip/directives/tooltip-target.direct
 import {GeneralModule} from "../xynga-general/general.module";
 import {CommonModule} from "@angular/common";
 import {ModalPanelComponent} from "./modal-panel/modal-panel.component";
+import {DragAndDropComponent} from "./drag-and-drop/drag-and-drop.component";
 import {BodyDirective} from "./modal-panel/directives/body.directive";
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
@@ -22,7 +23,8 @@ import {HttpModule} from "@angular/http";
         WaypointDirective,
         TooltipComponent,
         TooltipTargetDirective,
-        BodyDirective
+        BodyDirective,
+        DragAndDropComponent
     ],
     providers: [
         BodyDirective
@@ -43,7 +45,8 @@ import {HttpModule} from "@angular/http";
         WaypointDirective,
         TooltipComponent,
         TooltipTargetDirective,
-        BodyDirective
+        BodyDirective,
+        DragAndDropComponent
     ]
 })
 
