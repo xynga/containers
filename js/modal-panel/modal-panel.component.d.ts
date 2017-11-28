@@ -1,0 +1,33 @@
+import { OnInit, OnDestroy, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { BodyDirective } from "./directives/body.directive";
+export declare class ModalPanelComponent implements OnInit, OnDestroy {
+    private body;
+    private router;
+    open: boolean;
+    detailOpen: boolean;
+    confirmClose: () => Observable<boolean>;
+    confirmDetailClose: () => Observable<boolean>;
+    closed: EventEmitter<{}>;
+    detailClosed: EventEmitter<{}>;
+    panelOpen: boolean;
+    panelState: string;
+    private isAnimating;
+    private confirmCloseSubscription;
+    private confirmDetailCloseSubscription;
+    private routerEventsSubscription;
+    private routerEventsMonitoring;
+    readonly isExpanded: boolean;
+    constructor(body: BodyDirective, router: Router);
+    ngOnInit(): void;
+    onBackdropClicked(): void;
+    onCloseClicked(): void;
+    onCloseDetailClicked(): void;
+    activate(timer: number): void;
+    close(): void;
+    deactivate(confirmed: boolean): void;
+    closeDetail(): void;
+    unexpand(confirmed: boolean): void;
+    ngOnDestroy(): void;
+}

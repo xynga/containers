@@ -29,7 +29,7 @@ export class CollapseComponent implements OnInit {
   }
 
   resetHeight(): void {
-    this.collapseHeight = null;
+    this.collapseHeight = 0;
   }
 
   runCollapseOpen(): void {

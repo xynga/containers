@@ -32,7 +32,7 @@ export class TooltipComponent implements OnDestroy {
 
   @Input() public cssClass: string = '';
 
-  @Input() public tutorialIndex: number = undefined;
+  @Input() public tutorialIndex: number;
   @Input() public first: boolean = false;
   @Input() public last: boolean = false;
 
@@ -69,7 +69,7 @@ export class TooltipComponent implements OnDestroy {
       this.tether.destroy();
     }
 
-    Array.prototype.forEach.call(document.querySelectorAll('body>.macro-tooltip'), (el) => el.parentNode.removeChild(el));
+    Array.prototype.forEach.call(document.querySelectorAll('body>.macro-tooltip'), (el:any) => el.parentNode.removeChild(el));
   }
 
   public clearTimeouts(): void {
