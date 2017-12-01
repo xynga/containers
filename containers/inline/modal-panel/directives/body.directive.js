@@ -12,7 +12,7 @@ var BodyDirective = (function () {
     /** @nocollapse */
     BodyDirective.ctorParameters = function () { return []; };
     BodyDirective.propDecorators = {
-        "modalOpen": [{ type: HostBinding, args: ['class.has-modal',] },],
+        'modalOpen': [{ type: HostBinding, args: ['class.has-modal',] },],
     };
     return BodyDirective;
 }());

@@ -1,4 +1,4 @@
-import { Component, ViewChild, HostListener, ElementRef, Input } from '@angular/core';
+import { Component, ViewChild, HostListener, Input } from '@angular/core';
 // Externalized (polyglot) text values for field labels, input placeholders, button text
 // screen reader text, page headings, user instructions, help messages, menu uploads, etc
 var SELECTOR = 'information-panel';
@@ -72,11 +72,11 @@ var InformationPanelComponent = (function () {
     /** @nocollapse */
     InformationPanelComponent.ctorParameters = function () { return []; };
     InformationPanelComponent.propDecorators = {
-        "title": [{ type: Input },],
-        "helpButtonLabel": [{ type: Input },],
-        "waypoint": [{ type: ViewChild, args: ['waypoint',] },],
-        "container": [{ type: ViewChild, args: ['container',] },],
-        "onResize": [{ type: HostListener, args: ['window:resize', ['$event'],] },],
+        'title': [{ type: Input },],
+        'helpButtonLabel': [{ type: Input },],
+        'waypoint': [{ type: ViewChild, args: ['waypoint',] },],
+        'container': [{ type: ViewChild, args: ['container',] },],
+        'onResize': [{ type: HostListener, args: ['window:resize', ['$event'],] },],
     };
     return InformationPanelComponent;
 }());

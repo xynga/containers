@@ -106,15 +106,15 @@ var TooltipComponent = (function () {
         { type: NgZone, },
     ]; };
     TooltipComponent.propDecorators = {
-        "container": [{ type: ViewChild, args: ['container',] },],
-        "cssClass": [{ type: Input },],
-        "tutorialIndex": [{ type: Input },],
-        "first": [{ type: Input },],
-        "last": [{ type: Input },],
-        "attachment": [{ type: Input },],
-        "targetAttachment": [{ type: Input },],
-        "onTooltipToggle": [{ type: Output },],
-        "onTooltipNavigate": [{ type: Output },],
+        'container': [{ type: ViewChild, args: ['container',] },],
+        'cssClass': [{ type: Input },],
+        'tutorialIndex': [{ type: Input },],
+        'first': [{ type: Input },],
+        'last': [{ type: Input },],
+        'attachment': [{ type: Input },],
+        'targetAttachment': [{ type: Input },],
+        'onTooltipToggle': [{ type: Output },],
+        'onTooltipNavigate': [{ type: Output },],
     };
     return TooltipComponent;
 }());

@@ -67,8 +67,8 @@ var CollapseComponent = (function () {
     /** @nocollapse */
     CollapseComponent.ctorParameters = function () { return []; };
     CollapseComponent.propDecorators = {
-        "isActive": [{ type: Input },],
-        "content": [{ type: ViewChild, args: ['content',] },],
+        'isActive': [{ type: Input },],
+        'content': [{ type: ViewChild, args: ['content',] },],
     };
     return CollapseComponent;
 }());

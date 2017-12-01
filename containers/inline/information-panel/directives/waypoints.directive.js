@@ -43,10 +43,10 @@ var WaypointDirective = (function () {
         { type: ElementRef, },
     ]; };
     WaypointDirective.propDecorators = {
-        "context": [{ type: Input },],
-        "offset": [{ type: Input },],
-        "horizontal": [{ type: Input },],
-        "waypointChange": [{ type: Output },],
+        'context': [{ type: Input },],
+        'offset': [{ type: Input },],
+        'horizontal': [{ type: Input },],
+        'waypointChange': [{ type: Output },],
     };
     return WaypointDirective;
 }());

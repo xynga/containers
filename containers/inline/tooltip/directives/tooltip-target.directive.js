@@ -1,5 +1,4 @@
 import { Directive, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { TooltipComponent } from "../tooltip.component";
 var SELECTOR = '[tooltipTarget]';
 var TooltipTargetDirective = (function () {
     function TooltipTargetDirective(element) {
@@ -30,10 +29,10 @@ var TooltipTargetDirective = (function () {
         { type: ElementRef, },
     ]; };
     TooltipTargetDirective.propDecorators = {
-        "tooltipTarget": [{ type: Input },],
-        "targetAttachment": [{ type: Input },],
-        "attachment": [{ type: Input },],
-        "onTooltipToggle": [{ type: Output },],
+        'tooltipTarget': [{ type: Input },],
+        'targetAttachment': [{ type: Input },],
+        'attachment': [{ type: Input },],
+        'onTooltipToggle': [{ type: Output },],
     };
     return TooltipTargetDirective;
 }());

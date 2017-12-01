@@ -21,7 +21,7 @@ var DragAndDropComponent = (function () {
     /** @nocollapse */
     DragAndDropComponent.ctorParameters = function () { return []; };
     DragAndDropComponent.propDecorators = {
-        "URL": [{ type: Input },],
+        'URL': [{ type: Input },],
     };
     return DragAndDropComponent;
 }());

@@ -191,12 +191,12 @@ var ModalPanelComponent = (function () {
         { type: Router, },
     ]; };
     ModalPanelComponent.propDecorators = {
-        "open": [{ type: Input },],
-        "detailOpen": [{ type: Input },],
-        "confirmClose": [{ type: Input },],
-        "confirmDetailClose": [{ type: Input },],
-        "closed": [{ type: Output },],
-        "detailClosed": [{ type: Output },],
+        'open': [{ type: Input },],
+        'detailOpen': [{ type: Input },],
+        'confirmClose': [{ type: Input },],
+        'confirmDetailClose': [{ type: Input },],
+        'closed': [{ type: Output },],
+        'detailClosed': [{ type: Output },],
     };
     return ModalPanelComponent;
 }());
