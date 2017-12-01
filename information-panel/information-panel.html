@@ -4,13 +4,13 @@
   <div class="information-panel__viewport">
     <button class="link-btn information-panel__handle" (click)="toggle()">
       <div class="information-panel__label">
-        <icon icon="help"></icon>
+        <ng-content select="[help-icon]"></ng-content>
         <span>
           {{_helpButtonLabel}}
         </span>
       </div>
-      <div class="information-panel__arrow">
-        <icon icon="chevron-left-green"></icon>
+      <div>
+        <ng-content select="[open-icon]"></ng-content>
       </div>
     </button>
     <div class="information-panel__content">
