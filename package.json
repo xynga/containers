@@ -2,10 +2,10 @@
   "name": "xynga-containers",
   "version": "1.0.5",
   "description": "Holds all of the components classified under the label of \"Containers\"",
-  "main": "index.js",
+  "main": "containers/inline/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "if exist \"js\\\" ( rmdir /s /q js && echo js\\ folder and previous transpiled sources removed && tsc ) else ( tsc )"
+    "compile": "gulp inline && ngc"
   },
   "author": "",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/xynga/containers.git"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@angular/animations": "^4.4.4",
     "@angular/core": "^4.4.4",
     "@angular/http": "^4.4.4",
@@ -22,11 +22,30 @@
     "rxjs": "^5.4.3",
     "tether": "^1.4.0",
     "waypoints": "^4.0.1",
-    "xynga-general": "^1.0.1"
+    "xynga-general": "git://github.com/xynga/general.git#compile-test"
   },
   "devDependencies": {
+    "angular2-notifications": "^0.7.8",
+    "@angular/animations": "^4.4.4",
+    "@angular/common": "^4.4.6",
+    "@angular/compiler": "^5.0.4",
+    "@angular/compiler-cli": "^5.0.4",
+    "@angular/core": "^4.4.4",
+    "@angular/http": "^4.4.4",
+    "@angular/platform-browser": "^4.4.6",
+    "@angular/router": "^4.4.6",
     "@types/node": "^8.0.53",
     "@types/tether": "^1.4.3",
+    "gulp": "^3.9.1",
+    "gulp-inline-ng2-template": "^4.0.0",
+    "ng2-file-upload": "^1.2.1",
+    "node-sass": "^4.7.2",
+    "rxjs": "^5.4.3",
+    "tether": "^1.4.0",
+    "typescript": "^2.4.2",
+    "waypoints": "^4.0.1",
+    "xynga-general": "git://github.com/xynga/general.git#compile-test",
+    "prismjs": "^1.8.3",
     "zone.js": "^0.8.4"
   }
 }
