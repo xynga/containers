@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ContainersModule } from '../../../dist/inline';
+import { ContainersModule } from 'xynga-containers';
 
 
 @NgModule({

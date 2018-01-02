@@ -1,0 +1,13 @@
+<button class="btn"
+        [tooltipTarget]="tooltip"
+        targetAttachment="top left"
+        attachment="bottom left"
+        (click)="tooltip.toggle()"
+        (onTooltipToggle)="tooltipActive = $event">
+  {{tooltipActive ? 'Close' : 'Show'}} Tooltip
+</button>
+
+<tooltip #tooltip>
+  <h2>Tooltip 1 - Top Left</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque!</p>
+</tooltip>
