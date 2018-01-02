@@ -34,6 +34,60 @@
 </div>
 
 
+<h1>Drag and Drop Component</h1>
+<drag-and-drop></drag-and-drop>
+
+<h1>Information Panel</h1>
+<div style="border:2px solid darkgrey;">
+  <div style="position:relative;" margin-top>
+    <div padding-horizontal>
+      <h2 style="padding-left:10px;">Sample Content</h2>
+      <p style="padding:0 100px 200px 10px;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil officiis pariatur aliquid
+        enim delectus placeat, iusto, fugiat consectetur inventore. Reprehenderit velit odit error quaerat repudiandae,
+        suscipit possimus sapiente repellat minima, in nesciunt eos fugiat id, explicabo distinctio omnis. Molestiae
+        accusamus placeat praesentium? Optio porro dolores dolorum, nesciunt magnam, et amet.
+      </p>
+    </div>
+    <information-panel title="Title" helpButtonLabel="Help">
+      <ul>
+        <li><a href>Link 1</a></li>
+        <li><a href>Link 2</a></li>
+        <li><a href>Link 3</a></li>
+      </ul>
+      <a href>See All Topics</a>
+    </information-panel>
+  </div>
+</div>
+
+
+<h1>Modal Panel Component</h1>
+<div>
+  <button class='btn' (click)="modalOpen = !modalOpen">
+    Toggle Modal {{modalOpen ? 'Off' : 'On'}}
+  </button>
+
+  <modal-panel
+    [open] = "modalOpen"
+    [detailOpen]="modalDetailOpen"
+    (closed)="modalPanelClosed()"
+    (detailClosed)="detailSectionClosed()">
+    <button (click)="modalOpen = false">Close</button>
+    <h1>Foo Content</h1>
+
+    <button (click)="modalDetailOpen = true">
+      Expand Modal
+    </button>
+
+    <div class="modal-detail">
+      <icon icon="chevron-left-blue"></icon>
+      <button (click)="modalDetailOpen = false">Close expanded window</button>
+      <h1>Some Detail Content</h1>
+    </div>
+  </modal-panel>
+</div>
+
+
 <h1>Tooltip Component</h1>
 
 <div style="max-width:100%;text-align:center;

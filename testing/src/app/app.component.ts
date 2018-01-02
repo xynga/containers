@@ -21,6 +21,17 @@ export class AppComponent {
   vestibulum nisl porttitor non. Suspendisse potenti. Nullam quam velit, pellentesque id hendrerit id, auctor nec
   leo. Ut tempor magna at quam malesuada tempor.`;
 
+  modalOpen = false;
+  modalDetailOpen = false;
+
+  modalPanelClosed() {
+    this.modalOpen = false;
+  }
+
+  detailSectionClosed() {
+    this.modalDetailOpen = false;
+  }
+
   closeAllTooltips() {
     this.firstTooltipActive = false;
     this.secondTooltipActive = false;

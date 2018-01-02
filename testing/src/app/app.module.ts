@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ContainersModule } from 'xynga-containers';
+import { GeneralModule } from 'xynga-general/general/inline';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { ContainersModule } from 'xynga-containers';
   ],
   imports: [
     BrowserModule,
-    ContainersModule
+    AppRoutingModule,
+    ContainersModule,
+    GeneralModule
   ],
   providers: [],
   bootstrap: [AppComponent]
