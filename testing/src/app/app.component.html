@@ -1,13 +1,90 @@
-<button class="btn"
-        [tooltipTarget]="tooltip"
-        targetAttachment="top left"
-        attachment="bottom left"
-        (click)="tooltip.toggle()"
-        (onTooltipToggle)="tooltipActive = $event">
-  {{tooltipActive ? 'Close' : 'Show'}} Tooltip
-</button>
+<h1>Card Component</h1>
+
+<div style="max-width:500px;padding:10px;">
+  <card class='header footer'>
+    <card body>
+      <div body>BODY BODY</div>
+    </card>
+    <card footer nested class='footer'>
+      <div body>FOOTER BODY</div>
+      <div footer>FOOTER FOOTER</div>
+    </card>
+    <card header overlaid class='header'>
+      <div header>HEADER HEADER</div>
+      <div body>HEADER BODY</div>
+    </card>
+  </card>
+</div>
+
+
+<h1>Tooltip Component</h1>
+
+<div style="max-width:100%;text-align:center;
+  padding:0 0 200px 0;display:flex;justify-content:space-around;
+  flex-wrap:wrap;background:#ff8b8b">
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip"
+            targetAttachment="top left"
+            attachment="bottom left"
+            (click)="tooltip.toggle()"
+            (onTooltipToggle)="firstTooltipActive = $event">
+      {{firstTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip2"
+            targetAttachment="top right"
+            attachment="bottom right"
+            (click)="tooltip2.toggle()"
+            (onTooltipToggle)="secondTooltipActive = $event">
+      {{secondTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip3"
+            targetAttachment="bottom left"
+            attachment="top left"
+            (click)="tooltip3.toggle()"
+            (onTooltipToggle)="thirdTooltipActive = $event">
+      {{thirdTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip4"
+            targetAttachment="bottom right"
+            attachment="top right"
+            (click)="tooltip4.toggle()"
+            (onTooltipToggle)="fourthTooltipActive = $event">
+      {{fourthTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+</div>
 
 <tooltip #tooltip>
   <h2>Tooltip 1 - Top Left</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque!</p>
 </tooltip>
+
+<tooltip #tooltip2>
+  <h2>Tooltip 2 - Top Right</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque! </p>
+</tooltip>
+
+<tooltip #tooltip3>
+  <h2>Tooltip 3 - Bottom Left</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque!</p>
+</tooltip>
+
+<tooltip #tooltip4>
+  <h2>Tooltip 4 - Bottom Right</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque! </p>
+</tooltip>
+

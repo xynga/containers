@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
-  tooltipActive = false;
+  firstTooltipActive = false;
+  secondTooltipActive = false;
+  thirdTooltipActive = false;
+  fourthTooltipActive = false;
 }
