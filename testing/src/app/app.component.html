@@ -16,6 +16,23 @@
   </card>
 </div>
 
+<h1>Collapse Component</h1>
+
+<div>
+
+  <button (click)="toggleBox = !toggleBox" style="margin-bottom:10px;">
+    {{toggleBox ? 'Collapse Box' : 'Open Text'}}
+  </button>
+
+  <collapse [isActive]="toggleBox">
+    <div style="padding:0 10px;border:2px dashed;">
+      <h1>{{title}}</h1>
+      <p>{{message}}</p>
+    </div>
+  </collapse>
+
+</div>
+
 
 <h1>Tooltip Component</h1>
 
@@ -42,6 +59,12 @@
             (click)="tooltip2.toggle()"
             (onTooltipToggle)="secondTooltipActive = $event">
       {{secondTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:100%;">
+    <button (click)="closeAllTooltips();tooltip.hide();tooltip2.hide();tooltip3.hide();tooltip4.hide();">
+      Close All
     </button>
   </div>
 
