@@ -1,13 +1,13 @@
 {
   "name": "xynga-containers-source",
   "version": "0.0.1",
-  "description": "Holds all of the angular components classified under the label of \"Containers\"",
+  "description": "Source Typescript/Angular for Xynga \"Containers\"",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "gulp inline && ngc"
   },
-  "author": "",
+  "author": "GradTech V",
   "license": "MIT",
   "repository": {
     "type": "git",
