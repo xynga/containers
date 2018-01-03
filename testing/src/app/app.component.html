@@ -63,7 +63,7 @@
 
 <h1>Modal Panel Component</h1>
 <div>
-  <button class='btn' (click)="modalOpen = !modalOpen">
+  <button (click)="modalOpen = !modalOpen">
     Toggle Modal {{modalOpen ? 'Off' : 'On'}}
   </button>
 
@@ -72,6 +72,7 @@
     [detailOpen]="modalDetailOpen"
     (closed)="modalPanelClosed()"
     (detailClosed)="detailSectionClosed()">
+
     <button (click)="modalOpen = false">Close</button>
     <h1>Foo Content</h1>
 
@@ -80,7 +81,7 @@
     </button>
 
     <div class="modal-detail">
-      <icon icon="chevron-left-blue"></icon>
+      <!--<icon icon="chevron-left-blue"></icon>-->
       <button (click)="modalDetailOpen = false">Close expanded window</button>
       <h1>Some Detail Content</h1>
     </div>
