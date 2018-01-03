@@ -23,7 +23,7 @@ export class InformationPanelComponent implements AfterViewInit {
     this._helpButtonLabel = helpButtonLabel;
   }
 
-  public offsetRight: string;
+  public offsetRight: string = '';
   public containerHeight: number = 0;
 
   @ViewChild('waypoint') waypoint: ElementRef;
