@@ -13,8 +13,8 @@ const SELECTOR: string = 'information-panel';
 
 export class InformationPanelComponent implements AfterViewInit {
 
-  _title;
-  _helpButtonLabel;
+  _title: String;
+  _helpButtonLabel: String;
 
   @Input() set title(title : String) {
     this._title = title;
@@ -23,7 +23,7 @@ export class InformationPanelComponent implements AfterViewInit {
     this._helpButtonLabel = helpButtonLabel;
   }
 
-  public offsetRight: string = null;
+  public offsetRight: string = '';
   public containerHeight: number = 0;
 
   @ViewChild('waypoint') waypoint: ElementRef;
@@ -51,7 +51,7 @@ export class InformationPanelComponent implements AfterViewInit {
     // wait a tick to avoid one-time devMode unidirectional-data-flow-violation error
     // https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#parent-to-view-child
 
-    setTimeout(_ => this.containerHeight = this.getHeight(this.container.nativeElement));
+    setTimeout((_:any) => this.containerHeight = this.getHeight(this.container.nativeElement));
   }
 
   public toggle() {
@@ -80,7 +80,7 @@ export class InformationPanelComponent implements AfterViewInit {
       this.offsetRight = InformationPanelComponent.getOffsetRight(this.waypoint.nativeElement) + 'px';
     }
     else {
-      this.offsetRight = null;
+      this.offsetRight = '';
     }
   }
 }

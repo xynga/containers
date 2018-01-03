@@ -1,0 +1,168 @@
+<h1>Card Component</h1>
+
+<div style="max-width:500px;padding:10px;">
+  <card class='header footer'>
+    <card body>
+      <div body>BODY BODY</div>
+    </card>
+    <card footer nested class='footer'>
+      <div body>FOOTER BODY</div>
+      <div footer>FOOTER FOOTER</div>
+    </card>
+    <card header overlaid class='header'>
+      <div header>HEADER HEADER</div>
+      <div body>HEADER BODY</div>
+    </card>
+  </card>
+</div>
+
+<h1>Collapse Component</h1>
+
+<div>
+
+  <button (click)="toggleBox = !toggleBox" style="margin-bottom:10px;">
+    {{toggleBox ? 'Collapse Box' : 'Open Text'}}
+  </button>
+
+  <collapse [isActive]="toggleBox">
+    <div style="padding:0 10px;border:2px dashed;">
+      <h1>{{title}}</h1>
+      <p>{{message}}</p>
+    </div>
+  </collapse>
+
+</div>
+
+
+<h1>Drag and Drop Component</h1>
+<drag-and-drop></drag-and-drop>
+
+<h1>Information Panel</h1>
+<div style="border:2px solid darkgrey;">
+  <div style="position:relative;" margin-top>
+    <div padding-horizontal>
+      <h2 style="padding-left:10px;">Sample Content</h2>
+      <p style="padding:0 100px 200px 10px;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil officiis pariatur aliquid
+        enim delectus placeat, iusto, fugiat consectetur inventore. Reprehenderit velit odit error quaerat repudiandae,
+        suscipit possimus sapiente repellat minima, in nesciunt eos fugiat id, explicabo distinctio omnis. Molestiae
+        accusamus placeat praesentium? Optio porro dolores dolorum, nesciunt magnam, et amet.
+      </p>
+    </div>
+    <information-panel title="Title" helpButtonLabel="Help">
+      <ul>
+        <li><a href>Link 1</a></li>
+        <li><a href>Link 2</a></li>
+        <li><a href>Link 3</a></li>
+      </ul>
+      <a href>See All Topics</a>
+    </information-panel>
+  </div>
+</div>
+
+
+<h1>Modal Panel Component</h1>
+<div>
+  <button (click)="modalOpen = !modalOpen">
+    Toggle Modal {{modalOpen ? 'Off' : 'On'}}
+  </button>
+
+  <modal-panel
+    [open] = "modalOpen"
+    [detailOpen]="modalDetailOpen"
+    (closed)="modalPanelClosed()"
+    (detailClosed)="detailSectionClosed()">
+
+    <button (click)="modalOpen = false">Close</button>
+    <h1>Foo Content</h1>
+
+    <button (click)="modalDetailOpen = true">
+      Expand Modal
+    </button>
+
+    <div class="modal-detail">
+      <!--<icon icon="chevron-left-blue"></icon>-->
+      <button (click)="modalDetailOpen = false">Close expanded window</button>
+      <h1>Some Detail Content</h1>
+    </div>
+  </modal-panel>
+</div>
+
+
+<h1>Tooltip Component</h1>
+
+<div style="max-width:100%;text-align:center;
+  padding:0 0 200px 0;display:flex;justify-content:space-around;
+  flex-wrap:wrap;background:#ff8b8b">
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip"
+            targetAttachment="top left"
+            attachment="bottom left"
+            (click)="tooltip.toggle()"
+            (onTooltipToggle)="firstTooltipActive = $event">
+      {{firstTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip2"
+            targetAttachment="top right"
+            attachment="bottom right"
+            (click)="tooltip2.toggle()"
+            (onTooltipToggle)="secondTooltipActive = $event">
+      {{secondTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:100%;">
+    <button (click)="closeAllTooltips();tooltip.hide();tooltip2.hide();tooltip3.hide();tooltip4.hide();">
+      Close All
+    </button>
+  </div>
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip3"
+            targetAttachment="bottom left"
+            attachment="top left"
+            (click)="tooltip3.toggle()"
+            (onTooltipToggle)="thirdTooltipActive = $event">
+      {{thirdTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+
+  <div style="min-width:50%;margin:50px 0;">
+    <button class="btn"
+            [tooltipTarget]="tooltip4"
+            targetAttachment="bottom right"
+            attachment="top right"
+            (click)="tooltip4.toggle()"
+            (onTooltipToggle)="fourthTooltipActive = $event">
+      {{fourthTooltipActive ? 'Close' : 'Show'}} Tooltip
+    </button>
+  </div>
+</div>
+
+<tooltip #tooltip>
+  <h2>Tooltip 1 - Top Left</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque!</p>
+</tooltip>
+
+<tooltip #tooltip2>
+  <h2>Tooltip 2 - Top Right</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque! </p>
+</tooltip>
+
+<tooltip #tooltip3>
+  <h2>Tooltip 3 - Bottom Left</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque!</p>
+</tooltip>
+
+<tooltip #tooltip4>
+  <h2>Tooltip 4 - Bottom Right</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ab eaque, quisquam at fugit quas architecto nihil quasi quod repellat nemo praesentium deleniti a facere neque! </p>
+</tooltip>
+

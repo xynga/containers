@@ -29,16 +29,11 @@ export class CollapseComponent implements OnInit {
   }
 
   resetHeight(): void {
-    this.collapseHeight = null;
+    this.collapseHeight = 0;
   }
 
   runCollapseOpen(): void {
-    this.setContentHeight()
-        .then(() => {
-          setTimeout(() => {
-            this.resetHeight();
-          }, 400);
-        });
+    this.setContentHeight();
   }
 
   activateCollapse(): void {

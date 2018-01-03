@@ -22,7 +22,7 @@ export class TooltipTargetDirective implements OnInit, OnDestroy {
   public ngOnInit(): void {
     if (this.tooltipTarget) {
       this.tooltipTarget.setupTooltip(this.element.nativeElement, this.attachment, this.targetAttachment);
-      this.toggleSubscription = this.tooltipTarget.onTooltipToggle.subscribe(toggle => this.onTooltipToggle.emit(toggle));
+      this.toggleSubscription = this.tooltipTarget.onTooltipToggle.subscribe((toggle:any) => this.onTooltipToggle.emit(toggle));
     }
   }
 
