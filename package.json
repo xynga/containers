@@ -15,12 +15,6 @@
     "start": "cd testing && start chrome http://localhost:4200 && ng serve",
     "test": "npm run start"
   },
-  "config": {
-    "scripts": {
-      "build": "Builds the project (output in dist/)",
-      "link-build": "Links the built project to the testing Angular app"
-    }
-  },
   "author": "GradTech V",
   "license": "MIT",
   "repository": {
