@@ -3,13 +3,24 @@
   "version": "1.1.1",
   "description": "Holds all of the components classified under the label of \"Containers\"",
   "main": "dist/inline/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "git push"
-  },
   "files": [
     "dist/inline"
   ],
+  "scripts": {
+    "build": "cd src && npm run compile",
+    "link-build": "npm link && cd testing && npm link xynga-containers",
+    "postversion": "git push",
+    "rebuild": "npm run build && npm start",
+    "setup": "cd src && npm i && cd .. && npm run build && cd testing && npm i && cd .. && npm run link-build",
+    "start": "cd testing && start chrome http://localhost:4200 && ng serve",
+    "test": "npm run start"
+  },
+  "config": {
+    "scripts": {
+      "build": "Builds the project (output in dist/)",
+      "link-build": "Links the built project to the testing Angular app"
+    }
+  },
   "author": "GradTech V",
   "license": "MIT",
   "repository": {
