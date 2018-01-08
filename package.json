@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "Holds all of the components classified under the label of \"Containers\"",
   "main": "dist/inline/index.js",
+  "types": "dist/inline/index.d.ts",
   "files": [
     "dist/inline"
   ],
