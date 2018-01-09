@@ -6,7 +6,6 @@ import {InformationPanelComponent} from './information-panel/information-panel.c
 import {WaypointDirective} from './information-panel/directives/waypoints.directive';
 import {TooltipComponent} from './tooltip/tooltip.component';
 import {TooltipTargetDirective} from './tooltip/directives/tooltip-target.directive';
-import {GeneralModule} from 'xynga-general/general/inline';
 import {CommonModule} from '@angular/common';
 import {ModalPanelComponent} from './modal-panel/modal-panel.component';
 import {DragAndDropComponent} from './drag-and-drop/drag-and-drop.component';
@@ -33,7 +32,6 @@ import { FileUploadModule } from 'ng2-file-upload';
     imports:[
         CommonModule,
         BrowserAnimationsModule,
-        GeneralModule,
         RouterModule,
         HttpModule,
         FileUploadModule

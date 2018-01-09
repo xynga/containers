@@ -77,6 +77,7 @@ $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
     border-top: none;
     border-bottom: none;
     border-left: none;
+    cursor: pointer;
 
     &:active, &:focus {
       outline: none;
