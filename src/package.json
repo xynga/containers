@@ -35,7 +35,6 @@
     "tether": "^1.4.0",
     "typescript": "^2.4.2",
     "waypoints": "^4.0.1",
-    "xynga-general": "^1.1.2",
     "zone.js": "^0.8.4"
   }
 }
