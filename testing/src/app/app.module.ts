@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ContainersModule } from 'xynga-containers';
-import { GeneralModule } from 'xynga-general/general/inline';
+import { GeneralModule } from 'xynga-general';
 import { AppRoutingModule } from './app-routing.module';
 
 

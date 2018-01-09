@@ -13,17 +13,6 @@
     "type": "git",
     "url": "https://github.com/xynga/containers.git"
   },
-  "peerDependencies": {
-    "@angular/animations": ">=4.4.4",
-    "@angular/core": ">=4.4.4",
-    "@angular/http": ">=4.4.4",
-    "@angular/router": ">=4.4.6",
-    "ng2-file-upload": "^1.2.1",
-    "rxjs": "^5.4.3",
-    "tether": "^1.4.0",
-    "waypoints": "^4.0.1",
-    "xynga-general": "git://github.com/xynga/general.git#compile-test"
-  },
   "devDependencies": {
     "@angular/animations": "^4.4.4",
     "@angular/cli": "^1.4.4",
@@ -46,7 +35,7 @@
     "tether": "^1.4.0",
     "typescript": "^2.4.2",
     "waypoints": "^4.0.1",
-    "xynga-general": "git://github.com/xynga/general.git#compile-test",
+    "xynga-general": "^1.1.2",
     "zone.js": "^0.8.4"
   }
 }
