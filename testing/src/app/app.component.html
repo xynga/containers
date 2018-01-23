@@ -1,3 +1,5 @@
+<head><title>Blah</title></head>
+
 <h1>Card Component</h1>
 
 <div style="max-width:500px;padding:10px;">
@@ -18,7 +20,7 @@
 
 <h1>Collapse Component</h1>
 
-<div>
+<div id="collapse">
 
   <button (click)="toggleBox = !toggleBox" style="margin-bottom:10px;">
     {{toggleBox ? 'Collapse Box' : 'Open Text'}}
@@ -26,7 +28,7 @@
 
   <collapse [isActive]="toggleBox">
     <div style="padding:0 10px;border:2px dashed;">
-      <h1>{{title}}</h1>
+      <h1>{{collapseTitle}}</h1>
       <p>{{message}}</p>
     </div>
   </collapse>

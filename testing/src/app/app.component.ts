@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  title = 'Testing';
+
   firstTooltipActive = false;
   secondTooltipActive = false;
   thirdTooltipActive = false;
@@ -14,7 +16,7 @@ export class AppComponent {
 
   toggleBox = false;
 
-  title = 'Sample Title';
+  collapseTitle = 'Sample Title';
   message = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum non turpis commodo rutrum. Nullam
   faucibus ante ut nisi dictum, quis pulvinar nisi faucibus. Vestibulum id faucibus nisl. Donec ornare at metus in
   tristique. Pellentesque ipsum quam, commodo vel odio non, vulputate laoreet augue. Mauris rhoncus augue enim, a
