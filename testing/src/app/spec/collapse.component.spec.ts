@@ -39,23 +39,20 @@ describe('CollapseComponent', () => {
     fixture.detectChanges();
     const contentElement = fixture.debugElement.query(By.css('.collapse__content div')).nativeElement;
     contentElement.innerHTML = '<div style="padding:0 10px;border:2px dashed;"><h1>Collapse Title</h1><p>Message body...</p></div>';
-    collapseComp.isActive = false;
-    fixture.detectChanges();
-    collapseComp.isActive = true;
-    fixture.detectChanges();
-    expect(collapseElement.style.height.split('px')[0].valueOf()).toBeGreaterThan(0);
+    collapseComp.runCollapseOpen();
+    expect(collapseComp.collapseHeight.split('px')[0].valueOf()).toBeGreaterThan(0);
   });
 
-  it('should close when isActive is set to false', async(() => {
+  it('should close when isActive is set to false',() => {
     collapseComp.isActive = true;
     fixture.detectChanges();
     const contentElement = fixture.debugElement.query(By.css('.collapse__content div')).nativeElement;
     contentElement.innerHTML = '<div style="padding:0 10px;border:2px dashed;"><h1>Collapse Title</h1><p>Message body...</p></div>';
+    collapseComp.runCollapseOpen();
     collapseComp.isActive = false;
     fixture.detectChanges();
-    collapseComp.isActive = true;
+    collapseComp.runCollapseClose();
     fixture.detectChanges();
-    collapseComp.isActive = false;
-    setTimeout( () => { expect(collapseElement.style.height.split('px')[0].valueOf()).toBe(0); });
-  }));
+    expect(collapseComp.collapseHeight).toBe(0);
+  });
 });

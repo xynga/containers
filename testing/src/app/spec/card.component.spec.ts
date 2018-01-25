@@ -57,4 +57,4 @@ describe('CardComponent', () => {
     </div>
   `,
   selector: 'card-test'
-}) export class CardTestComponent {}
+}) class CardTestComponent {}
