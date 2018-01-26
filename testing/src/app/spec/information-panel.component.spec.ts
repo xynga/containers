@@ -37,9 +37,9 @@ describe('InformationPanelComponent', () => {
 
   it('should open/close when toggled', () => {
     ipComp.toggle();
-    expect(ipComp.active).toBeTruthy();
+    expect(ipComp.active).toBeTruthy('panel should be open');
     ipComp.toggle();
-    expect(ipComp.active).toBe(false);
+    expect(ipComp.active).toBe(false, 'panel should be closed');
   });
 
   it('should open/close when handle clicked', () => {
