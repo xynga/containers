@@ -4,14 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
+import { Subscriber } from 'rxjs/Subscriber';
 
 describe( 'ModalPanelComponent',() => {
   let fixture: ComponentFixture<ModalPanelComponent>;
   let mp, mpComp, mpEl;
-
-  const BodyDirectiveStub = {
-    modalOpen: false
-  };
 
   const RouterStub = {
     events: new Observable()
@@ -20,13 +17,14 @@ describe( 'ModalPanelComponent',() => {
   beforeEach(async( () => {
     TestBed.configureTestingModule({
       declarations: [
-        ModalPanelComponent
+        ModalPanelComponent,
+        BodyDirective
       ],
       imports: [
         BrowserAnimationsModule
       ],
       providers: [
-        { provide: BodyDirective, useValue: BodyDirectiveStub },
+        BodyDirective,
         { provide: Router, useValue: RouterStub }
       ]
     }).compileComponents();
