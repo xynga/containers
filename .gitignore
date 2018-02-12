@@ -6,6 +6,7 @@
 /out-tsc
 /inline
 */inline
+*/coverage
 
 # dependencies
 /node_modules
