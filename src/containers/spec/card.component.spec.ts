@@ -1,12 +1,13 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { CardComponent } from 'xynga-containers';
 import { By } from '@angular/platform-browser';
-import { Component } from '@angular/core';
+import {Component, ComponentRef} from '@angular/core';
+import { CardComponent } from '../card/card.component';
 
 describe('CardComponent', () => {
 
   let fixture: ComponentFixture<CardTestComponent>;
-  let cardComp, cardEl;
+  let cardComp: any;
+  let cardEl: any;
 
   beforeEach(async(() => {
     const bodyDirectiveStub = {

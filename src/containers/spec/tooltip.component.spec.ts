@@ -1,12 +1,15 @@
 import { TestBed, async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
-import { TooltipComponent, TooltipTargetDirective } from 'xynga-containers';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipComponent } from '../tooltip/tooltip.component';
+import { TooltipTargetDirective } from '../tooltip/directives/tooltip-target.directive';
 
 describe('TooltipComponent', () => {
   let fixture: ComponentFixture<TooltipTestComponent>;
-  let tt, ttComp, ttEl;
+  let tt: any;
+  let ttComp: any;
+  let ttEl: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ContainersModule } from 'xynga-containers';
-import { GeneralModule } from 'xynga-general';
+import { ContainersModule } from '../containers';
 import { AppRoutingModule } from './app-routing.module';
+import { GeneralModule} from 'xynga-general';
 
 
 @NgModule({
