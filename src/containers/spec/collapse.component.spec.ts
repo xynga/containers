@@ -1,10 +1,11 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { CollapseComponent } from 'xynga-containers';
+import { CollapseComponent } from '../collapse/collapse.component';
 import { By } from '@angular/platform-browser';
 
 describe('CollapseComponent', () => {
   let fixture: ComponentFixture<CollapseComponent>;
-  let collapseComp, collapseElement;
+  let collapseComp: any;
+  let collapseElement: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

@@ -1,11 +1,16 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { InformationPanelComponent, WaypointDirective } from 'xynga-containers';
+import { InformationPanelComponent } from '../information-panel/information-panel.component';
+import { WaypointDirective} from '../information-panel/directives/waypoints.directive';
 import { Component, ElementRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 describe('InformationPanelComponent', () => {
   let fixture: ComponentFixture<InformationPanelTestComponent>;
-  let ipTestComp, ip, ipComp, ipEl, ipHandle;
+  let ipTestComp: any;
+  let ip: any;
+  let ipComp: any;
+  let ipEl: any;
+  let ipHandle: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

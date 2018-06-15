@@ -13,7 +13,6 @@
       "xynga-general": ["node_modules/xynga-general/general/inline"]
     },
     "rootDir": ".",
-    "outDir": "../dist",
     "sourceMap": true,
     "inlineSources": true,
     "target": "es5",
@@ -24,7 +23,7 @@
     ]
   },
   "include" :[
-    "inline/**/*"
+    "dist/**/*"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,

@@ -1,14 +1,17 @@
 import { TestBed, async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
-import { BodyDirective, ModalPanelComponent } from 'xynga-containers';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { Subscriber } from 'rxjs/Subscriber';
+import { BodyDirective } from '../modal-panel/directives/body.directive';
+import { ModalPanelComponent } from '../modal-panel/modal-panel.component';
 
 describe( 'ModalPanelComponent',() => {
   let fixture: ComponentFixture<ModalPanelComponent>;
-  let mp, mpComp, mpEl;
+  let mp: any;
+  let mpComp: any;
+  let mpEl: any;
 
   const RouterStub = {
     events: new Observable()

@@ -1,11 +1,13 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { DragAndDropComponent } from 'xynga-containers';
+import { DragAndDropComponent } from '../drag-and-drop/drag-and-drop.component';
 import { FileDropDirective } from 'ng2-file-upload';
 import { By } from '@angular/platform-browser';
 
 describe('DragAndDropComponent', () => {
   let fixture: ComponentFixture<DragAndDropComponent>;
-  let dad, dadComp, fileDrop;
+  let dad: any;
+  let dadComp: any;
+  let fileDrop: any;
 
   beforeEach(async( () => {
     TestBed.configureTestingModule({
