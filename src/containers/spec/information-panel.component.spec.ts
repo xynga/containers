@@ -4,10 +4,32 @@ import { WaypointDirective} from '../information-panel/directives/waypoints.dire
 import { Component, ElementRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+@Component({
+  template: `<div style="border:2px solid darkgrey;"><div style="position:relative;" margin-top>
+    <div padding-horizontal>
+      <h2 style="padding-left:10px;">Sample Content</h2>
+      <p style="padding:0 100px 2000px 10px;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil officiis pariatur aliquid
+        enim delectus placeat, iusto, fugiat consectetur inventore. Reprehenderit velit odit error quaerat repudiandae,
+        suscipit possimus sapiente repellat minima, in nesciunt eos fugiat id, explicabo distinctio omnis. Molestiae
+        accusamus placeat praesentium? Optio porro dolores dolorum, nesciunt magnam, et amet.
+      </p>
+      <h3>{{offsetRight}}</h3>
+    </div>
+    <information-panel #ip title="Title" helpButtonLabel="Help">
+      <ul>
+        <li><a href>Link 1</a></li>
+        <li><a href>Link 2</a></li>
+        <li><a href>Link 3</a></li>
+      </ul>
+      <a href>See All Topics</a>
+    </information-panel>
+  </div></div>`
+}) class InformationPanelTestComponent {
+  offsetRight: any;
+}
+
 describe('InformationPanelComponent', () => {
-  class InformationPanelTestComponent {
-    offsetRight: any;
-  }
 
   let ipTestComp: any;
   let ip: any;
@@ -80,26 +102,3 @@ describe('InformationPanelComponent', () => {
   });
 
 });
-
-@Component({
-  template: `<div style="border:2px solid darkgrey;"><div style="position:relative;" margin-top>
-    <div padding-horizontal>
-      <h2 style="padding-left:10px;">Sample Content</h2>
-      <p style="padding:0 100px 2000px 10px;">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil officiis pariatur aliquid
-        enim delectus placeat, iusto, fugiat consectetur inventore. Reprehenderit velit odit error quaerat repudiandae,
-        suscipit possimus sapiente repellat minima, in nesciunt eos fugiat id, explicabo distinctio omnis. Molestiae
-        accusamus placeat praesentium? Optio porro dolores dolorum, nesciunt magnam, et amet.
-      </p>
-      <h3>{{offsetRight}}</h3>
-    </div>
-    <information-panel #ip title="Title" helpButtonLabel="Help">
-      <ul>
-        <li><a href>Link 1</a></li>
-        <li><a href>Link 2</a></li>
-        <li><a href>Link 3</a></li>
-      </ul>
-      <a href>See All Topics</a>
-    </information-panel>
-  </div></div>`
-})

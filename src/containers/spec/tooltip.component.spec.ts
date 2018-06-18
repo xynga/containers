@@ -5,8 +5,17 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipComponent } from '../tooltip/tooltip.component';
 import { TooltipTargetDirective } from '../tooltip/directives/tooltip-target.directive';
 
+
+@Component({
+  template: `
+    <div [tooltipTarget]="tooltip"
+         targetAttachment="bottom right"
+         attachment="top right"></div>
+    <tooltip #tooltip></tooltip>
+  `
+}) class TooltipTestComponent {}
+
 describe('TooltipComponent', () => {
-  class TooltipTestComponent {}
   let tt: any;
   let ttComp: any;
   let ttEl: any;
@@ -63,13 +72,3 @@ describe('TooltipComponent', () => {
 
   }));
 });
-
-
-@Component({
-  template: `
-    <div [tooltipTarget]="tooltip"
-         targetAttachment="bottom right"
-         attachment="top right"></div>
-    <tooltip #tooltip></tooltip>
-  `
-})
