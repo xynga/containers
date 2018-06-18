@@ -7,7 +7,7 @@ import { Subscriber } from 'rxjs/Subscriber';
 import { BodyDirective } from '../modal-panel/directives/body.directive';
 import { ModalPanelComponent } from '../modal-panel/modal-panel.component';
 
-describe( 'ModalPanelComponent',() => {
+describe( 'ModalPanelComponent', () => {
   let fixture: ComponentFixture<ModalPanelComponent>;
   let mp: any;
   let mpComp: any;
@@ -53,7 +53,7 @@ describe( 'ModalPanelComponent',() => {
   it('should open/close when open input is changed', fakeAsync(() => {
     mpComp.open = true;
     expect(mpComp.panelOpen).toBeTruthy('panel should be open');
-    let deactivateSpy = spyOn(mpComp, 'deactivate').and.callThrough();
+    const deactivateSpy = spyOn(mpComp, 'deactivate').and.callThrough();
     mpComp.open = false;
     fixture.detectChanges();
     expect(deactivateSpy).toHaveBeenCalled();
@@ -66,7 +66,7 @@ describe( 'ModalPanelComponent',() => {
     mpComp.detailOpen = true;
     expect(mpComp.isExpanded).toBeTruthy('panel should be expanded');
     mpComp.detailOpen = false;
-    expect(mpComp.isExpanded).toBe(false,'panel should be un-expanded');
+    expect(mpComp.isExpanded).toBe(false, 'panel should be un-expanded');
     mpComp.open = false;
     tick(600);
     fixture.detectChanges();
@@ -76,8 +76,8 @@ describe( 'ModalPanelComponent',() => {
     mpComp.open = true;
     fixture.detectChanges();
     expect(mpComp.panelOpen).toBeTruthy('panel should open');
-    let mpBackdropEl = mp.query(By.css('.modal-backdrop'));
-    let onBackdropClickedSpy = spyOn(mpComp, 'onBackdropClicked').and.callThrough();
+    const mpBackdropEl = mp.query(By.css('.modal-backdrop'));
+    const onBackdropClickedSpy = spyOn(mpComp, 'onBackdropClicked').and.callThrough();
     mpBackdropEl.triggerEventHandler('click', null);
     fixture.detectChanges();
     expect(onBackdropClickedSpy).toHaveBeenCalled();
@@ -90,8 +90,8 @@ describe( 'ModalPanelComponent',() => {
     mpComp.detailOpen = true;
     expect(mpComp.isExpanded).toBeTruthy('panel should be expanded');
     fixture.detectChanges();
-    let detailOverlay = mp.query(By.css('.modal-detail-overlay'));
-    let onCloseDetailClickedSpy = spyOn(mpComp,'onCloseDetailClicked').and.callThrough();
+    const detailOverlay = mp.query(By.css('.modal-detail-overlay'));
+    const onCloseDetailClickedSpy = spyOn(mpComp, 'onCloseDetailClicked').and.callThrough();
     detailOverlay.triggerEventHandler('click', null);
     fixture.detectChanges();
     expect(onCloseDetailClickedSpy).toHaveBeenCalled();
@@ -103,7 +103,7 @@ describe( 'ModalPanelComponent',() => {
   it('should close on close "click"', fakeAsync(() => {
     mpComp.open = true;
     expect(mpComp.panelOpen).toBeTruthy('panel should open');
-    let deactivateSpy = spyOn(mpComp, 'deactivate').and.callThrough();
+    const deactivateSpy = spyOn(mpComp, 'deactivate').and.callThrough();
     mpComp.onCloseClicked();
     expect(deactivateSpy).toHaveBeenCalled();
     tick(600);

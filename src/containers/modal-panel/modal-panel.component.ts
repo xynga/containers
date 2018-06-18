@@ -4,14 +4,14 @@ import {Router, NavigationStart, RouterModule} from '@angular/router';
 
 import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
-import {BodyDirective} from "./directives/body.directive";
+import {BodyDirective} from './directives/body.directive';
 
 
-const INACTIVE: string = 'inactive';
-const ACTIVE: string = 'active';
-const EXPANDED: string = 'expanded';
+const INACTIVE = 'inactive';
+const ACTIVE = 'active';
+const EXPANDED = 'expanded';
 
-const modalSpeed: number = 500;
+const modalSpeed = 500;
 
 const opacityOff = style({opacity: 0});
 const opacityOn = style({opacity: 1});
@@ -20,11 +20,11 @@ const slideRight = style({transform: 'translateX(100%)'});
 const slideNone = style({transform: 'translateX(0)'});
 const slideLeft = style({transform: 'translateX(-100%)'});
 
-const easeOutQuart: string = 'cubic-bezier(0.165, 0.840, 0.440, 1.000)';
+const easeOutQuart = 'cubic-bezier(0.165, 0.840, 0.440, 1.000)';
 
 const animateDefault = animate(`${modalSpeed}ms ${easeOutQuart}`);
 
-const SELECTOR: string = 'modal-panel';
+const SELECTOR = 'modal-panel';
 
 @Component({
     selector: SELECTOR,
@@ -65,14 +65,13 @@ export class ModalPanelComponent implements OnInit, OnDestroy {
         if (undefined !== open && null !== open) {
             if (!this.panelOpen && open) {
                 this.activate(0);
-            }
-            else if (this.panelOpen && !open) {
+            } else if (this.panelOpen && !open) {
                 this.close();
             }
 
             this.routerEventsMonitoring = false; // because we got an @Input value we were not accessed vai a route
         }
-    };
+    }
 
     @Input()
     public set detailOpen(open: boolean) {
@@ -83,15 +82,14 @@ export class ModalPanelComponent implements OnInit, OnDestroy {
                 if (!this.panelOpen) {
                     this.activate(0);
                 }
-            }
-            else if (this.isExpanded){
+            } else if (this.isExpanded) {
                 this.panelState = ACTIVE;
                 this.closeDetail();
             }
 
             this.routerEventsMonitoring = false; // because we got an @Input value we were not accessed vai a route
         }
-    };
+    }
 
     @Input() public confirmClose: () => Observable<boolean>;
     @Input() public confirmDetailClose: () => Observable<boolean>;
@@ -100,17 +98,17 @@ export class ModalPanelComponent implements OnInit, OnDestroy {
 
     @Output() public detailClosed = new EventEmitter();
 
-    public panelOpen: boolean = false;
+    public panelOpen = false;
 
     public panelState: string = INACTIVE;
 
-    private isAnimating: boolean = false;
+    private isAnimating = false;
 
     private confirmCloseSubscription: Subscription;
     private confirmDetailCloseSubscription: Subscription;
 
     private routerEventsSubscription: Subscription;
-    private routerEventsMonitoring: boolean = true;
+    private routerEventsMonitoring = true;
 
     public get isExpanded(): boolean {
         return EXPANDED === this.panelState;
@@ -157,8 +155,7 @@ export class ModalPanelComponent implements OnInit, OnDestroy {
     public close(): void {
         if (this.confirmClose) {
             this.confirmCloseSubscription = this.confirmClose().subscribe((confirmed: boolean) => this.deactivate(confirmed));
-        }
-        else {
+        } else {
             this.deactivate(true);
         }
     }
@@ -186,8 +183,7 @@ export class ModalPanelComponent implements OnInit, OnDestroy {
     public closeDetail(): void {
         if (this.confirmDetailClose) {
             this.confirmDetailCloseSubscription = this.confirmDetailClose().subscribe((confirmed: boolean) => this.unexpand(confirmed));
-        }
-        else {
+        } else {
             this.unexpand(true);
         }
     }

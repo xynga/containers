@@ -6,7 +6,7 @@ import { TooltipComponent } from '../tooltip/tooltip.component';
 import { TooltipTargetDirective } from '../tooltip/directives/tooltip-target.directive';
 
 describe('TooltipComponent', () => {
-  let fixture: ComponentFixture<TooltipTestComponent>;
+  class TooltipTestComponent {}
   let tt: any;
   let ttComp: any;
   let ttEl: any;
@@ -24,6 +24,7 @@ describe('TooltipComponent', () => {
     }).compileComponents();
   }));
 
+  let fixture: ComponentFixture<TooltipTestComponent>;
   beforeEach(() => {
     fixture = TestBed.createComponent(TooltipTestComponent);
     tt = fixture.debugElement.query(By.css('tooltip'));
@@ -71,4 +72,4 @@ describe('TooltipComponent', () => {
          attachment="top right"></div>
     <tooltip #tooltip></tooltip>
   `
-}) class TooltipTestComponent {}
+})

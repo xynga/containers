@@ -2,8 +2,8 @@ import {Component, Input, Output, EventEmitter, ViewChild, NgZone, OnDestroy} fr
 import {animate, trigger, state, style, transition} from '@angular/animations';
 import * as Tether from 'tether';
 
-const tooltipSpeed: number = 250;
-const easeOutQuart: string = 'cubic-bezier(0.165, 0.840, 0.440, 1.000)';
+const tooltipSpeed = 250;
+const easeOutQuart = 'cubic-bezier(0.165, 0.840, 0.440, 1.000)';
 
 const opacityOff = style({
   opacity: 0
@@ -12,7 +12,7 @@ const opacityOn = style({
   opacity: 1
 });
 
-const SELECTOR: string = 'tooltip';
+const SELECTOR = 'tooltip';
 
 @Component({
   selector: SELECTOR,
@@ -30,21 +30,21 @@ const SELECTOR: string = 'tooltip';
 export class TooltipComponent implements OnDestroy {
   @ViewChild('container') container: any;
 
-  @Input() public cssClass: string = '';
+  @Input() public cssClass = '';
 
   @Input() public tutorialIndex: number;
-  @Input() public first: boolean = false;
-  @Input() public last: boolean = false;
+  @Input() public first = false;
+  @Input() public last = false;
 
-  @Input() attachment: string = 'top left';
-  @Input() targetAttachment: string = 'top right';
+  @Input() attachment = 'top left';
+  @Input() targetAttachment = 'top right';
 
-  @Output() onTooltipToggle: EventEmitter<any> = new EventEmitter();
-  @Output() onTooltipNavigate: EventEmitter<any> = new EventEmitter();
+  @Output() tooltipToggle: EventEmitter<any> = new EventEmitter();
+  @Output() tooltipNavigate: EventEmitter<any> = new EventEmitter();
 
-  public tooltipState: string = 'inactive';
-  public active: boolean = false;
-  public isTutoring: boolean = false;
+  public tooltipState = 'inactive';
+  public active = false;
+  public isTutoring = false;
 
   private target: HTMLElement;
   private tether: any;
@@ -69,7 +69,7 @@ export class TooltipComponent implements OnDestroy {
       this.tether.destroy();
     }
 
-    Array.prototype.forEach.call(document.querySelectorAll('body>.macro-tooltip'), (el:any) => el.parentNode.removeChild(el));
+    Array.prototype.forEach.call(document.querySelectorAll('body>.macro-tooltip'), (el: any) => el.parentNode.removeChild(el));
   }
 
   public clearTimeouts(): void {
@@ -88,7 +88,7 @@ export class TooltipComponent implements OnDestroy {
   public hide(): void {
     if (this.active) {
       this.tooltipState = 'inactive';
-      this.onTooltipToggle.emit(false);
+      this.tooltipToggle.emit(false);
 
       this.disableTimeout = setTimeout(() => this.active = false, tooltipSpeed);
     }
@@ -98,7 +98,7 @@ export class TooltipComponent implements OnDestroy {
     if (!this.active) {
       this.tooltipState = 'active';
       this.active = true;
-      this.onTooltipToggle.emit(true);
+      this.tooltipToggle.emit(true);
 
       this.zone.runOutsideAngular(() => this.enableTimeout = setTimeout(() => this.tether.position()));
     }
@@ -123,7 +123,7 @@ export class TooltipComponent implements OnDestroy {
 
   public ngOnDestroy(): void {
     this.destroyTooltip();
-    //super.ngOnDestroy();
+    // super.ngOnDestroy();
   }
 }
 

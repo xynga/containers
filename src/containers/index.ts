@@ -1,4 +1,4 @@
-export {ContainersModule} from './containers.module'
+export {ContainersModule} from './containers.module';
 export {CardComponent} from './card/card.component';
 export {CollapseComponent} from './collapse/collapse.component';
 export {InformationPanelComponent} from './information-panel/information-panel.component';

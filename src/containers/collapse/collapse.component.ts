@@ -1,6 +1,6 @@
 import {Component, Input, ViewChild, OnInit} from '@angular/core';
 
-const SELECTOR: string = 'collapse';
+const SELECTOR = 'collapse';
 
 @Component({
   selector: SELECTOR,
@@ -8,14 +8,13 @@ const SELECTOR: string = 'collapse';
   styleUrls: ['./collapse.scss']
 })
 export class CollapseComponent implements OnInit {
-  _isActive: boolean = false;
+  _isActive = false;
   collapseHeight: number | string = 0;
 
   @Input() set isActive(isActive: boolean) {
     if (isActive) {
       this.activateCollapse();
-    }
-    else {
+    } else {
       this.deactivateCollapse();
     }
   }

@@ -5,7 +5,10 @@ import { Component, ElementRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 describe('InformationPanelComponent', () => {
-  let fixture: ComponentFixture<InformationPanelTestComponent>;
+  class InformationPanelTestComponent {
+    offsetRight: any;
+  }
+
   let ipTestComp: any;
   let ip: any;
   let ipComp: any;
@@ -22,6 +25,7 @@ describe('InformationPanelComponent', () => {
     }).compileComponents();
   }));
 
+  let fixture: ComponentFixture<InformationPanelTestComponent>;
   beforeEach( () => {
     fixture = TestBed.createComponent(InformationPanelTestComponent);
     ipTestComp = fixture.debugElement.componentInstance;
@@ -55,19 +59,19 @@ describe('InformationPanelComponent', () => {
   });
 
   it('should react to waypoint change', () => {
-    let waypoint = fixture.debugElement.query(By.directive(WaypointDirective));
+    const waypoint = fixture.debugElement.query(By.directive(WaypointDirective));
     waypoint.triggerEventHandler('waypointChange', 'down');
     expect(ipComp.offsetRight.split('px')[0].valueOf()).toBeGreaterThan(0);
   });
 
   it('should react to waypointBottom change', () => {
-    let waypointBottom = fixture.debugElement.query(By.css('.information-panel-waypoint-bottom'));
+    const waypointBottom = fixture.debugElement.query(By.css('.information-panel-waypoint-bottom'));
     waypointBottom.triggerEventHandler('waypointChange', 'down');
     expect(ipComp.isFixedBottom).toBe(true);
   });
 
   it('should reposition on resize', () => {
-    let waypoint = fixture.debugElement.query(By.directive(WaypointDirective));
+    const waypoint = fixture.debugElement.query(By.directive(WaypointDirective));
     waypoint.triggerEventHandler('waypointChange', 'down');
     expect(ipComp.offsetRight.split('px')[0].valueOf()).toBeGreaterThan(0);
     ipComp.isFixed = false;
@@ -98,6 +102,4 @@ describe('InformationPanelComponent', () => {
       <a href>See All Topics</a>
     </information-panel>
   </div></div>`
-}) class InformationPanelTestComponent {
-  offsetRight: any;
-}
+})

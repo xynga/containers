@@ -11,7 +11,6 @@ import {ModalPanelComponent} from './modal-panel/modal-panel.component';
 import {DragAndDropComponent} from './drag-and-drop/drag-and-drop.component';
 import {BodyDirective} from './modal-panel/directives/body.directive';
 import {RouterModule} from '@angular/router';
-import {HttpModule} from '@angular/http';
 import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -29,14 +28,13 @@ import { FileUploadModule } from 'ng2-file-upload';
     providers: [
         BodyDirective
     ],
-    imports:[
+    imports: [
         CommonModule,
         BrowserAnimationsModule,
         RouterModule,
-        HttpModule,
         FileUploadModule
     ],
-    exports:[
+    exports: [
         ModalPanelComponent,
         CardComponent,
         CollapseComponent,

@@ -4,13 +4,13 @@
     <div class="tooltip__content">
       <ng-content></ng-content>
       <div *ngIf="isTutoring">
-        <button *ngIf="!first" padding-lg-horizontal class="btn" (click)="onTooltipNavigate.emit('prev')">
+        <button *ngIf="!first" padding-lg-horizontal class="btn" (click)="tooltipNavigate.emit('prev')">
           Previous
         </button>
-        <button *ngIf="!last" padding-lg-horizontal class="btn" (click)="onTooltipNavigate.emit('next')">
+        <button *ngIf="!last" padding-lg-horizontal class="btn" (click)="tooltipNavigate.emit('next')">
           Next
         </button>
-        <button margin-left class="link-btn" (click)="onTooltipNavigate.emit('end')">
+        <button margin-left class="link-btn" (click)="tooltipNavigate.emit('end')">
           <strong *ngIf="first">
             Quit
           </strong>

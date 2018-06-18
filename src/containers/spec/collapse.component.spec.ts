@@ -44,7 +44,7 @@ describe('CollapseComponent', () => {
     expect(collapseComp.collapseHeight.split('px')[0].valueOf()).toBeGreaterThan(0);
   });
 
-  it('should close when isActive is set to false',() => {
+  it('should close when isActive is set to false', () => {
     collapseComp.isActive = true;
     fixture.detectChanges();
     const contentElement = fixture.debugElement.query(By.css('.collapse__content div')).nativeElement;

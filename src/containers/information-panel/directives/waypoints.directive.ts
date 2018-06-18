@@ -4,7 +4,7 @@ import 'waypoints/lib/noframework.waypoints.js';
 
 declare let Waypoint: any;
 
-const SELECTOR: string = '[waypoint]';
+const SELECTOR = '[waypoint]';
 
 @Directive({
   selector: SELECTOR
@@ -12,7 +12,7 @@ const SELECTOR: string = '[waypoint]';
 export class WaypointDirective implements AfterViewInit, OnDestroy {
   @Input() context: Element;
   @Input() offset: number | string;
-  @Input() horizontal: boolean = false;
+  @Input() horizontal = false;
   @Output() waypointChange = new EventEmitter();
 
   public waypoint: any;
@@ -24,7 +24,7 @@ export class WaypointDirective implements AfterViewInit, OnDestroy {
   }
 
   public setWaypoint(): void {
-    let config: any = {
+    const config: any = {
       element: this.element.nativeElement,
       handler: (direction: string) => this.waypointChange.emit(direction)
     };

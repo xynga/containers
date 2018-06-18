@@ -3,7 +3,7 @@ import {Component, ViewChild, HostListener, AfterViewInit, ElementRef, Input} fr
 // Externalized (polyglot) text values for field labels, input placeholders, button text
 // screen reader text, page headings, user instructions, help messages, menu uploads, etc
 
-const SELECTOR: string = 'information-panel';
+const SELECTOR = 'information-panel';
 
 @Component({
   selector: SELECTOR,
@@ -16,29 +16,29 @@ export class InformationPanelComponent implements AfterViewInit {
   _title: String;
   _helpButtonLabel: String;
 
-  @Input() set title(title : String) {
+  @Input() set title(title: String) {
     this._title = title;
   }
-  @Input() set helpButtonLabel(helpButtonLabel : String) {
+  @Input() set helpButtonLabel(helpButtonLabel: String) {
     this._helpButtonLabel = helpButtonLabel;
   }
 
-  public offsetRight: string = '';
-  public containerHeight: number = 0;
+  public offsetRight = '';
+  public containerHeight = 0;
 
   @ViewChild('waypoint') waypoint: ElementRef;
   @ViewChild('container') container: ElementRef;
 
-  public active: boolean = false;
-  public isFixed: boolean = false;
-  public isFixedBottom: boolean = false;
+  public active = false;
+  public isFixed = false;
+  public isFixedBottom = false;
 
   private static getOffsetRight(element: any): number {
     const box = element.getBoundingClientRect();
     return document.documentElement.clientWidth - (box.left + window.pageXOffset - document.documentElement.clientLeft);
   }
 
-  public constructor(){};
+  public constructor() { }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -51,15 +51,15 @@ export class InformationPanelComponent implements AfterViewInit {
     // wait a tick to avoid one-time devMode unidirectional-data-flow-violation error
     // https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#parent-to-view-child
 
-    setTimeout((_:any) => this.containerHeight = this.getHeight(this.container.nativeElement));
+    setTimeout((_: any) => this.containerHeight = this.getHeight(this.container.nativeElement));
   }
 
   public toggle() {
     this.active = !this.active;
 
-    //if (this.active) {
-      //this.intercom.trackEvent('openHelpPanel');
-    //}
+    // if (this.active) {
+      // this.intercom.trackEvent('openHelpPanel');
+    // }
   }
 
   public onWaypointChange(event: string): void {
@@ -78,8 +78,7 @@ export class InformationPanelComponent implements AfterViewInit {
   private positionPanel(): void {
     if (this.waypoint && this.isFixed) {
       this.offsetRight = InformationPanelComponent.getOffsetRight(this.waypoint.nativeElement) + 'px';
-    }
-    else {
+    } else {
       this.offsetRight = '';
     }
   }

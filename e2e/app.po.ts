@@ -13,31 +13,31 @@ export class AppPage {
     return element(by.cssContainingText('button', 'Collapse Box'));
   }
 
-  getCollapseComponent(){
+  getCollapseComponent() {
     return element(by.tagName('collapse'));
   }
 
-  getInformationPanel(){
+  getInformationPanel() {
     return element(by.css('button.link-btn'));
   }
 
-  getOpenInformationPanel(){
-    return element(by.css('div.information-panel'))
+  getOpenInformationPanel() {
+    return element(by.css('div.information-panel'));
   }
 
-  getButtonByText(myText: string){
+  getButtonByText(myText: string) {
     return element(by.cssContainingText('button', myText));
   }
 
-  getModalPanel(){
+  getModalPanel() {
     return element(by.css('modal-panel'));
   }
 
-  getExpandedModalPanel(){
+  getExpandedModalPanel() {
     return element(by.css('div.modal-detail-container'));
   }
 
-  getH2ByText(myText: string){
+  getH2ByText(myText: string) {
     return element(by.cssContainingText('h2', myText));
   }
 

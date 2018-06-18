@@ -4,10 +4,11 @@ import {Component, ComponentRef} from '@angular/core';
 import { CardComponent } from '../card/card.component';
 
 describe('CardComponent', () => {
+  class CardTestComponent {}
 
-  let fixture: ComponentFixture<CardTestComponent>;
   let cardComp: any;
   let cardEl: any;
+  let fixture: ComponentFixture<CardTestComponent>;
 
   beforeEach(async(() => {
     const bodyDirectiveStub = {
@@ -33,7 +34,7 @@ describe('CardComponent', () => {
   }));
 
   it('should contain some stuff', async(() => {
-    let cardBody = fixture.debugElement.query(By.css('card[body] div[body]')).nativeElement;
+    const cardBody = fixture.debugElement.query(By.css('card[body] div[body]')).nativeElement;
     expect(cardBody.textContent).toContain('BODY BODY');
   }));
 
@@ -57,5 +58,5 @@ describe('CardComponent', () => {
       </card>
     </div>
   `,
-  selector: 'card-test'
-}) class CardTestComponent {}
+  selector: 'app-card-test'
+})

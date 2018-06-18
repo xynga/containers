@@ -31,7 +31,7 @@ describe('DragAndDropComponent', () => {
 
   it('should react when file is hovered over', () => {
     fixture.detectChanges();
-    let onFileOverSpy = spyOn(dadComp, 'onFileOver').and.callThrough();
+    const onFileOverSpy = spyOn(dadComp, 'onFileOver').and.callThrough();
     fileDrop.triggerEventHandler('dragover', getFakeEventData());
     expect(onFileOverSpy).toHaveBeenCalled();
     expect(dadComp.dropZoneHover).toBeTruthy();
@@ -46,5 +46,5 @@ function getFakeEventData(): any {
     },
     preventDefault: () => undefined,
     stopPropagation: () => undefined
-  }
+  };
 }

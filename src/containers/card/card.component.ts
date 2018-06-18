@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-const SELECTOR: string = 'card';
+const SELECTOR = 'card';
 
 @Component({
   selector: SELECTOR,

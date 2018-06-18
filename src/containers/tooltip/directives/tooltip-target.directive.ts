@@ -1,19 +1,19 @@
 import {Directive, Input, OnInit, OnDestroy, Output, EventEmitter, ElementRef} from '@angular/core';
 
 import {Subscription} from 'rxjs/Subscription';
-import {TooltipComponent} from "../tooltip.component";
+import {TooltipComponent} from '../tooltip.component';
 
-const SELECTOR: string = '[tooltipTarget]';
+const SELECTOR = '[tooltipTarget]';
 
 @Directive({
   selector: SELECTOR
 })
 export class TooltipTargetDirective implements OnInit, OnDestroy {
-  @Input() tooltipTarget : TooltipComponent;
-  @Input() targetAttachment: string = 'top right';
-  @Input() attachment: string = 'top left';
+  @Input() tooltipTarget: TooltipComponent;
+  @Input() targetAttachment = 'top right';
+  @Input() attachment = 'top left';
 
-  @Output() onTooltipToggle: EventEmitter<any> = new EventEmitter();
+  @Output() tooltipToggle: EventEmitter<any> = new EventEmitter();
 
   public toggleSubscription: Subscription;
 
@@ -22,7 +22,7 @@ export class TooltipTargetDirective implements OnInit, OnDestroy {
   public ngOnInit(): void {
     if (this.tooltipTarget) {
       this.tooltipTarget.setupTooltip(this.element.nativeElement, this.attachment, this.targetAttachment);
-      this.toggleSubscription = this.tooltipTarget.onTooltipToggle.subscribe((toggle:any) => this.onTooltipToggle.emit(toggle));
+      this.toggleSubscription = this.tooltipTarget.tooltipToggle.subscribe((toggle: any) => this.tooltipToggle.emit(toggle));
     }
   }
 

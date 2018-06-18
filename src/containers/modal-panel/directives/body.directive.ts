@@ -1,10 +1,10 @@
 import {Directive, HostBinding} from '@angular/core';
 
-const SELECTOR: string = 'body';
+const SELECTOR = 'body';
 
 @Directive({
   selector: SELECTOR
 })
 export class BodyDirective {
-  @HostBinding('class.has-modal') public modalOpen: boolean = false;
+  @HostBinding('class.has-modal') public modalOpen = false;
 }

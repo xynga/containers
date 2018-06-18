@@ -39,7 +39,7 @@ describe('testing App', () => {
     });
     page.getButtonByText('Expand Modal').click();
     page.getExpandedModalPanel();
-    //If All these buttons are found and successfully clicked in order the test passes
+    // If All these buttons are found and successfully clicked in order the test passes
   });
   it('Open Tooltip 1', () => {
     page.navigateTo();
